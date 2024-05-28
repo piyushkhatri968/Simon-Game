@@ -1,6 +1,7 @@
 let para = document.querySelector("p")
 let high_score = document.querySelector("b")
 let btns = ["green", "red", "orange", "yellow"]
+let start_btn = document.querySelector("#start_btn")
 
 let gameSeq = []
 let userSeq = []
@@ -13,7 +14,7 @@ let highScore = 0;
 const levelUp = () => {
     userSeq = []
     level++;
-    para.innerText = `Level ${level}`
+    para.innerText = `Level: ${level}`
 
     let randomIdx = Math.floor(Math.random() * 4)
     let randomColor = btns[randomIdx]
@@ -31,11 +32,19 @@ const btnFlash = (randombtn) => {
     }, 200);
 }
 
-//1. to start the game
-document.addEventListener("keypress", (event) => {
-    if (event.key === ' ' && started == false) {
-        started = true
-        levelUp()
+// start game function
+const start_game = () => {
+    start_btn.classList.add("hidden")
+    started = true
+    levelUp()
+
+}
+
+// to start the game on START button
+
+start_btn.addEventListener("click", () => {
+    if (!started) {
+        start_game()
     }
 })
 
@@ -69,14 +78,16 @@ const reset = () => {
     document.body.style.backgroundColor = "red"
     setTimeout(() => {
         document.body.style.backgroundColor = "white"
-    }, 100);
+    }, 200);
 
     if (level > highScore) {
         highScore = level
     }
 
+    start_btn.classList.remove("hidden")
+
     para.innerHTML = `Game Over! Your score was <b>${level}</b> Press space to start again`
-    
+
     high_score.innerHTML = `${highScore}`
     started = false
     level = 0

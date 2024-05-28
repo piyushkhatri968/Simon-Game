@@ -42,3 +42,18 @@
 .flash {
   background-color: white;
 }
+
+#start_btn {
+  background-color: grey;
+  color: white;
+  font-weight: bold;
+  padding: 10px;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.hidden{
+  display: none;
+}
