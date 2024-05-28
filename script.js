@@ -86,7 +86,7 @@ const reset = () => {
 
     start_btn.classList.remove("hidden")
 
-    para.innerHTML = `Game Over! Your score was <b>${level}</b> Press space to start again`
+    para.innerHTML = `Game Over! Your score was <b>${level}</b> start again`
 
     high_score.innerHTML = `${highScore}`
     started = false

@@ -20,6 +20,10 @@
   gap: 1rem;
 }
 
+p{
+  text-align: center;
+}
+
 .boxes div {
   width: 150px;
   height: 150px;
