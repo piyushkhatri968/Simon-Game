@@ -96,3 +96,9 @@ const reset = () => {
 
 
 }
+
+
+let screenWidth = window.innerWidth
+if (screenWidth < 900) {
+    document.querySelector("#console").classList.add("hidden")
+}
